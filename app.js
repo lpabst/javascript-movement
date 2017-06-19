@@ -8,8 +8,6 @@ var topSpeed = 0;
 var health = 100;
 var score = 0;
 
-healthbox.innerText = health;
-scorebox.innerText = score;
 
 window.addEventListener('keyup', function(e){
     console.log(window.innerWidth);
@@ -43,8 +41,23 @@ function update(){
 
     player1.style.left = Number(currentLeft) + leftSpeed + 'px';
     player1.style.top = Number(currentTop) + topSpeed + 'px';
+    healthbox.innerText = health;
+    scorebox.innerText = score;
+    placeFood();
     
 }
+
+// function placeFood(){
+//     var randomX = Math.floor(Math.random()*window.innerWidth);
+//     var randomY = Math.floor(Math.random()*window.innerHeight);
+//     var food = document.createElement("div");
+//     food.className = 'food';
+//     food.setAttribute('id', 'food');
+//     document.getElementById('main_section').appendChild(food);
+//     food1 = document.getElementById('food');
+//     food1.style.left = randomX;
+//     food1.style.top = randomY;
+// }
 
 function eat(){
     score += 20;
@@ -56,6 +69,6 @@ function collision(){
 
 setInterval(function(){
     update();
-}, 20)
+}, 1000)
 
 
